@@ -61,3 +61,34 @@ function modificarUsuario(rut) {
 
 
 
+
+var usuarioAEliminar = null
+function prepararEliminar(id) {
+    //Asignar el id del usuario a eliminar
+    usuarioAEliminar = id;
+}
+//Generalmos metodo para confirmar la eliminarcion
+document.getElementById("confirmarEliminarBtn").addEventListener("click", function () {
+    //verificamos que el id no sea nulo
+    if (usuarioAEliminar !== null) {
+        //Realizo la peticion para eliminar
+        fetch("/eliminar_usuario/" + usuarioAEliminar, {
+            method: "DELETE"
+        })
+            .then(function (response) {
+                //Verifico si el usuario se elimino
+                if (response.ok) {
+                    alert("Usuario eliminado exitosamente...")
+                    location.reload();
+
+                } else {
+                    alert("Error al eliminar usuario")
+                }
+
+            })
+            .catch(function (error) {
+                console.error("Error al ejecutar peticion", error);
+
+            });
+    }
+});
