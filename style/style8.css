@@ -92,11 +92,22 @@ footer {
     margin-top: auto;
 }
 
-.modal-body 
-{
+/* Opcional: Mejoras de estilo adicionales */
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-body {
     background-color: #f1d7e6;
 }
-.modal-footer
-{
+
+.modal-footer {
     background-color: #f1d7e6;
+    border-top: 1px solid #cc6699;
+}
+
+.list-group-item {
+    border: none;
+    padding: 10px 15px;
 }

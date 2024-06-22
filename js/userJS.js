@@ -59,29 +59,25 @@ function modificarUsuario(rut) {
 }
 
 
-
 function verDetalles(rut) {
-    //Realizo una solicitud para obtener los datos
+    // Realizo una solicitud para obtener los datos
     fetch("/usuarios/" + rut)
         .then(function (response) {
             return response.json();
         })
         .then(function (usuario) {
-            document.getElementById("detallesUsuario").textContent =
-                "Rut: " + usuario.Rut +
-                "\nNombre: " + usuario.Nombre +
-                "\nCorreo: " + usuario.CorreoElectronico +
-                "\nContraseña :" + usuario.Contraseña +
-                "\nContraseña2: " + usuario.Contraseña2 +
-                "\nDireccion: " + usuario.Direccion+ 
-                "\nRol: " + usuario.Id_Rol;
+            document.getElementById("rutUsuario").textContent = usuario.Rut;
+            document.getElementById("nombreUsuario").textContent = usuario.Nombre;
+            document.getElementById("correoUsuario").textContent = usuario.CorreoElectronico;
+            document.getElementById("contrasenaUsuario").textContent = usuario.Contraseña;
+            document.getElementById("contrasena2Usuario").textContent = usuario.Contraseña2;
+            document.getElementById("direccionUsuario").textContent = usuario.Direccion;
+            document.getElementById("rolUsuario").textContent = usuario.Id_Rol;
         })
         .catch(function (error) {
-            console.error("Errpr al mostrar datos ", error);
+            console.error("Error al mostrar datos", error);
         });
-
 }
-
 
 
 
